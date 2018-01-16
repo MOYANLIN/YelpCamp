@@ -19,7 +19,8 @@ var commentRoutes=require("./routes/comments"),
 
 
 
-mongoose.connect("mongodb://localhost/yelp_camp_v2");
+//mongoose.connect("mongodb://localhost/yelp_camp_v2");
+mongoose.connect("mongodb://momo:123456@ds255787.mlab.com:55787/yelpcampofmomo")
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
 app.use(methodOverride("_method"));
