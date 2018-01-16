@@ -52,6 +52,6 @@ app.use("/campgrounds", campgroundRoutes);
 app.use(commentRoutes);
 
 
-app.listen(8080, process.env.IP, function(){
-    console.log("listen!!");
+app.listen(process.env.PORT||8080, process.env.IP, function(){
+    console.log("listen!!"+process.env.PORT+process.env.port);
 });
