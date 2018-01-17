@@ -1,8 +1,18 @@
 
+
 .card{
     margin-top: 10px;
 }
 
 #delete-style{
     display: inline;
+}
+
+#login-title{
+    text-align: center;
+    font-family: 'Joti One';
+}
+
+#login-btn{
+    text-align: center;
 }
