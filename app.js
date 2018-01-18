@@ -27,7 +27,7 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.use(flash());
 
-
+app.locals.moment=require("moment");
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
     secret:"momo",
@@ -43,7 +43,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next){
     res.locals.currentUser=req.user;
     res.locals.error = req.flash("error");
-    res.locals.success = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 

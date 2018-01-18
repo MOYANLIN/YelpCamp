@@ -45,6 +45,7 @@
     "mime": "~1.4.1",
     "mime-db": "~1.30.0",
     "mime-types": "~2.1.17",
+    "moment": "^2.20.1",
     "mongodb": "~3.0.1",
     "mongodb-core": "~3.0.1",
     "mongoose": "~5.0.0-rc2",

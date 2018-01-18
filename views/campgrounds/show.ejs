@@ -3,8 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <p class="lead">YelpCamp</p>
-            <div class="list-group">
+            <div class="list-group" style="margin-top: 12px">
                 <li class="list-group-item">Info 1</li>
                 <li class="list-group-item">Info 2</li>
                 <li class="list-group-item">Info 3</li>
@@ -18,16 +17,22 @@
                 <h4><a href="#"><%= campgrounds.name%></a></h4>
                 <P><%= campgrounds.description %></P>
                 <P>
-                    <em>Submitted By <%= campgrounds.author.username %> </em>
+                    <em>Submitted By <%= campgrounds.author.username %>, <%= moment(campgrounds.createdAt).fromNow() %> </em>
                 </P>
                 <% if(currentUser && campgrounds.author.id.equals(currentUser._id)) { %>
-                <a calss="btn btn-primary" href="/campgrounds/<%= campgrounds._id %>/edit">Edit</a>
+                
+                <a class="btn btn-warning" href="/campgrounds/<%= campgrounds._id %>/edit" role="button" style="margin-right:5px">
+                    Edit
+                </a>
+
                 <form id="delete-style" action="/campgrounds/<%= campgrounds._id %>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
                 <% } %>
-                </div>
             </div>
+        </div>
+    
+            
             <div class="card">
                 <div class="card-header">
                 <div class="text-right">
@@ -42,7 +47,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <%= comment.author.username %>
-                            <span class="float-sm-right">10 days ago</span>
+                            <span class="float-sm-right"><%= moment(comment.createdAt).fromNow() %></span>
                             <P><%= comment.text %></P>
                             <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
                             <form action="/campgrounds/<%= campgrounds._id %>/comment/<%= comment._id%>?_method=DELETE" method="POST">
@@ -56,6 +61,9 @@
                 </div>
                 
             </div>
+        
+            
+            
         </div>
     </div>
 </div>
